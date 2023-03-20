@@ -1,0 +1,83 @@
+[tool.poetry]
+name = "business-faker-provider"
+version = "0.1.0"
+description = "custom provider for additional conditional faker provider"
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+keywords = ["faker"]
+classifiers = [
+  "Development Status :: 2 - Pre-Alpha",
+  "Framework :: Pytest",
+  "Intended Audience :: Developers",
+  "License :: Other/Proprietary License",
+  "Natural Language :: English",
+  "Programming Language :: Python :: 3",
+]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+Faker = "^17.6.0"
+
+[tool.poetry.dev-dependencies]
+black = "^23.1.0"
+coverage = "^7.2.2"
+coverage-threshold = "^0.4.4"
+pytest = "^7.2.2"
+pytest-clarity = "^1.0.1"
+pytest-cov = "^4.0.0"
+pytest-random-order = "^1.1.0"
+pytest-repeat = "^0.9.1"
+isort = "^5.12.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 120
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+
+[tool.coverage.run]
+branch = true
+command_line = '-m pytest'
+source = ["ppl_faker_provider/src"]
+omit = [".*", "*/site-packages/*"]
+
+[tool.coverage.report]
+fail_under = 90
+show_missing = true
+skip_covered = true
+precision = 1
+
+[tool.coverage.json]
+output = "coverage.json"
+pretty_print = true
+
+[coverage-threshold]
+line_coverage_min = 85
+file_line_coverage_min = 85
+branch_coverage_min = 50
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q -vvvv -o cli_log=true -x --random-order"
+testpaths = [
+    "ppl_faker_provider/tests",
+]
