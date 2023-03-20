@@ -1,4 +1,15 @@
 [[package]]
+name = "arrow"
+version = "1.2.3"
+description = "Better dates & times for Python"
+category = "dev"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+python-dateutil = ">=2.7.0"
+
+[[package]]
 name = "attrs"
 version = "22.2.0"
 description = "Classes Without Boilerplate"
@@ -389,9 +400,10 @@ python-versions = ">=3.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "f24dd27f98ec7b9fa4ed49502eb882ef4e6e5adf65b9e6b53d3989be2ff5605a"
+content-hash = "0fcb319c52b38b4365ceeb374ae6f9f8530b31d921045d09b474135256d6bd19"
 
 [metadata.files]
+arrow = []
 attrs = []
 black = []
 click = [

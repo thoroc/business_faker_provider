@@ -11,7 +11,9 @@ classifiers = [
   "Intended Audience :: Developers",
   "License :: Other/Proprietary License",
   "Natural Language :: English",
+  "Operating System :: OS Independent",
   "Programming Language :: Python :: 3",
+  "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 
 [tool.poetry.dependencies]
@@ -29,6 +31,7 @@ pytest-random-order = "^1.1.0"
 pytest-repeat = "^0.9.1"
 isort = "^5.12.0"
 flake8 = "^6.0.0"
+arrow = "^1.2.3"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
@@ -58,7 +61,7 @@ multi_line_output = 3
 [tool.coverage.run]
 branch = true
 command_line = '-m pytest'
-source = ["ppl_faker_provider/src"]
+source = ["business_faker_provider/src"]
 omit = [".*", "*/site-packages/*"]
 
 [tool.coverage.report]
@@ -80,5 +83,5 @@ branch_coverage_min = 50
 minversion = "6.0"
 addopts = "-ra -q -vvvv -o cli_log=true -x --random-order"
 testpaths = [
-    "ppl_faker_provider/tests",
+    "business_faker_provider/tests",
 ]
