@@ -160,3 +160,4 @@ cython_debug/
 #.idea/
 
 pytest-coverage.txt
+pytest.xml
