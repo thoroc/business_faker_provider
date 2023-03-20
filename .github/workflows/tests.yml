@@ -94,7 +94,8 @@ jobs:
       #----------------------------------------------
       #       append PR with code coverage
       #----------------------------------------------
-      - name: pytest-coverage-commentator
-        uses: coroo/pytest-coverage-commentator@v1.0.2
+      - name: Pytest coverage comment
+        uses: MishaKav/pytest-coverage-comment@main
         with:
-          pytest-coverage: pytest-coverage.txt
+          pytest-coverage-path: ./pytest-coverage.txt
+          junitxml-path: ./pytest.xml
