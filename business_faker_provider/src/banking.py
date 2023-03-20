@@ -9,7 +9,7 @@ class BankingProvider(BaseProvider):
     __lang__ = "en_GB"
 
     def bank_account_number(self) -> str:
-        """Generate a bank account number
+        """Generate a bank account number.
 
         Returns:
             str: The bank account number
@@ -23,7 +23,7 @@ class BankingProvider(BaseProvider):
         return account_number
 
     def bank_account_sort_code(self) -> str:
-        """Generate a bank account sort code
+        """Generate a bank account sort code.
 
         Returns:
             str: The bank account sort code

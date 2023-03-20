@@ -18,7 +18,7 @@ class CustomerProvider(BaseProvider):
         """Generate a Person full name.
 
         Args:
-            as_str (bool): whether to return the value as a string
+            as_str (bool, optional): whether to return the value as a string. Defaults to False.
 
         Returns:
             dict: Person full name
@@ -48,8 +48,8 @@ class CustomerProvider(BaseProvider):
         """Generate a date of birth.
 
         Args:
-            date_format (str): date format. Defaults to "%d-%m-%Y".
-            allow_under_aged (bool): can the date of birth be under 18? Defaults to False.
+            date_format (str, optional): date format. Defaults to "%d-%m-%Y".
+            allow_under_aged (bool, optional): can the date of birth be under 18? Defaults to False.
 
         Returns:
             str: date of birth
@@ -67,8 +67,9 @@ class CustomerProvider(BaseProvider):
         """Generate an email address.
 
         Args:
-            first (str): first name. Defaults to "John".
-            last (str): last name. Defaults to "Doe".
+            first (str, optional): first name. Defaults to "John".
+            last (str, optional): last name. Defaults to "Doe".
+            domain (str, optional): domain name. Defaults to "yopmail.com"
 
         Returns:
             str: email address
@@ -87,9 +88,9 @@ class CustomerProvider(BaseProvider):
         """Generate a player address.
 
         Args:
-            address_as_list (bool): address as list. Defaults to True.
-            postcode (str): postcode. Defaults to None.
-            full (bool): provide additional fields value (county and coutry_code)
+            address_as_list (bool, optional): address as list. Defaults to True.
+            postcode (str, optional): postcode. Defaults to None.
+            full (bool, optional): provide additional fields value (county and coutry_code). Defaults to False.
 
         Returns:
             dict: player address
@@ -130,13 +131,12 @@ class CustomerProvider(BaseProvider):
         """Generate a person phone number.
 
         Args:
-            is_mobile (bool): phone number is for a mobile
-            country_prefix (bool): include country prefix
+            is_mobile (bool, optional): phone number is for a mobile
+            country_prefix (bool, optional): include country prefix. Default to False
 
         Returns:
             str: person phone number
         """
-
         prefix = "+44" if country_prefix else "0"
 
         if is_mobile:

@@ -5,6 +5,10 @@ class TestPersonPhoneNumber:
     @pytest.mark.repeat(5)
     def test_returns_str(self, faker):
         # Arrange
+        min_length = 8
+        max_length = 13
+
+        # Act
         phone_number = faker.customer_phone_number()
 
         # Assert
@@ -12,11 +16,11 @@ class TestPersonPhoneNumber:
         assert isinstance(phone_number, str)
         assert phone_number != ""
         assert phone_number[0] == "0"
-        assert 8 <= len(phone_number) <= 13
+        assert min_length <= len(phone_number) <= max_length
 
     @pytest.mark.repeat(5)
     def test_returns_str_is_land_line(self, faker):
-        # Arrange
+        # Act
         phone_number = faker.customer_phone_number()
 
         # Assert
@@ -24,7 +28,7 @@ class TestPersonPhoneNumber:
 
     @pytest.mark.repeat(5)
     def test_returns_str_is_mobile(self, faker):
-        # Arrange
+        # Act
         phone_number = faker.customer_phone_number(is_mobile=True)
 
         # Assert
@@ -32,7 +36,7 @@ class TestPersonPhoneNumber:
 
     @pytest.mark.repeat(5)
     def test_returns_str_has_country_prefix(self, faker):
-        # Arrange
+        # Act
         phone_number = faker.customer_phone_number(country_prefix=True)
 
         # Assert

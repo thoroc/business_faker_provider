@@ -11,7 +11,11 @@ class CommonProvider(BaseProvider):
     __lang__ = "en_GB"
 
     def date_now_utc(self) -> str:
-        """Generate a timestamp."""
+        """Generate a timestamp.
+
+        Returns:
+          str: a datetime in the format YYYY-mm-ddTHH:MM:SS
+        """
         now = int(time.time())
 
         return str(datetime.fromtimestamp(now).isoformat("T", "seconds"))

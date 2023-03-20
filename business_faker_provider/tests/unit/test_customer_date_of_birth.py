@@ -6,7 +6,7 @@ import pytest
 
 class TestcustomerDateOfBirth:
     def test_returns_str(self, faker):
-        # Arrange
+        # Act
         date_of_birth = faker.customer_date_of_birth()
 
         # Assert
@@ -15,7 +15,7 @@ class TestcustomerDateOfBirth:
         assert date_of_birth != ""
 
     def test_returns_str_date_format(self, faker):
-        # Arrange
+        # Act
         date_of_birth = faker.customer_date_of_birth(date_format="%Y-%m-%d")
 
         # Assert
@@ -23,7 +23,7 @@ class TestcustomerDateOfBirth:
 
     @pytest.mark.repeat(5)
     def test_returns_str_not_underaged(self, faker):
-        # Arrange
+        # Act
         date_of_birth = faker.customer_date_of_birth(allow_under_aged=False)
 
         # Act
@@ -35,12 +35,12 @@ class TestcustomerDateOfBirth:
 
     @pytest.mark.repeat(5)
     def test_returns_str_can_be_underaged(self, faker):
-        # Arrange
-        date_of_birth = faker.customer_date_of_birth(allow_under_aged=False)
+        # Assert
+        now = arrow.now()
 
         # Act
+        date_of_birth = faker.customer_date_of_birth(allow_under_aged=False)
         actual = arrow.get(date_of_birth, "DD-MM-YYYY")
-        now = arrow.now()
 
         # Assert
         assert actual.date() < now.date()

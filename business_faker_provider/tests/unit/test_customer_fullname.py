@@ -1,6 +1,6 @@
 class TestcustomerFullName:
     def test_returns_dict_has_title(self, faker):
-        # Arrange
+        # Act
         actual = faker.customer_fullname()
 
         # Assert
@@ -8,7 +8,7 @@ class TestcustomerFullName:
         assert isinstance(actual["title"], str)
 
     def test_returns_dict_has_first(self, faker):
-        # Arrange
+        # Act
         actual = faker.customer_fullname()
 
         # Assert
@@ -16,7 +16,7 @@ class TestcustomerFullName:
         assert isinstance(actual["first"], str)
 
     def test_returns_dict_has_last(self, faker):
-        # Arrange
+        # Act
         actual = faker.customer_fullname()
 
         # Assert
@@ -24,7 +24,7 @@ class TestcustomerFullName:
         assert isinstance(actual["last"], str)
 
     def test_returns_str(self, faker):
-        # Arrange
+        # Act
         actual = faker.customer_fullname(as_str=True)
 
         # Assert

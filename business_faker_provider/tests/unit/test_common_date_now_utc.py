@@ -15,6 +15,3 @@ class TestCommonDateNowUtc:
         # Assert
         assert isinstance(updated_utc, str)
         assert pattern.match(updated_utc) is not None
-
-    def test_false(self):
-        assert False

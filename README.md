@@ -33,4 +33,4 @@ fake.customer_fullname()
 * Run tests: `poetry run pytest`
 * Run coverage: `poetry run coverage run -m pytest && poetry run coverage report -m --no-skip-covered`
 * Format code: `poetry run black business_faker_provider`
-* Sort imports: `poetry run isort business_faker_provider`
+* Lint code: `poetry run ruff business_faker_provider --fix`

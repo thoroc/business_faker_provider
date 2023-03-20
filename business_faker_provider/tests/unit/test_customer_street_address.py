@@ -6,7 +6,7 @@ import pytest
 class TestcustomerStreetAddress:
     @pytest.mark.repeat(5)
     def test_returns_dict_has_address(self, faker):
-        # Arrange
+        # Act
         address = faker.customer_street_address()
 
         # Assert
@@ -17,7 +17,7 @@ class TestcustomerStreetAddress:
 
     @pytest.mark.repeat(5)
     def test_returns_dict_has_address_as_str(self, faker):
-        # Arrange
+        # Act
         address = faker.customer_street_address(address_as_list=False)
 
         # Assert
@@ -28,7 +28,7 @@ class TestcustomerStreetAddress:
 
     @pytest.mark.repeat(5)
     def test_returns_dict_has_town(self, faker):
-        # Arrange
+        # Act
         address = faker.customer_street_address()
 
         # Assert
@@ -40,8 +40,10 @@ class TestcustomerStreetAddress:
     @pytest.mark.repeat(5)
     def test_returns_dict_has_postcode(self, faker):
         # Arrange
-        address = faker.customer_street_address()
         pattern = re.compile(r"^[A-Z]{1,2}\d[A-Z\d]? ?\d[A-Z]{2}$")
+
+        # Act
+        address = faker.customer_street_address()
 
         # Assert
         assert isinstance(address, dict)
@@ -65,15 +67,15 @@ class TestcustomerStreetAddress:
 
     @pytest.mark.repeat(5)
     def test_returns_dict_without_none(self, faker):
-        # Arrange
+        # Act
         address = faker.customer_street_address()
 
         # Assert
-        assert not (None in address.values())
+        assert None not in address.values()
 
     @pytest.mark.repeat(5)
     def test_returns_dict_has_county(self, faker):
-        # Arrange
+        # Act
         address = faker.customer_street_address(full=True)
 
         # Assert
@@ -81,7 +83,7 @@ class TestcustomerStreetAddress:
 
     @pytest.mark.repeat(5)
     def test_returns_dict_has_country_code(self, faker):
-        # Arrange
+        # Act
         address = faker.customer_street_address(full=True)
 
         # Assert
