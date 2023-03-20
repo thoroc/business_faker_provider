@@ -63,7 +63,7 @@ class CustomerProvider(BaseProvider):
 
         return date_of_birth.strftime(date_format)
 
-    def customer_email_address(self, first: str = None, last: str = None, domain: str = "yopmail.com") -> str:
+    def customer_email_address(self, first: str = None, last: str = None, domain: str = None) -> str:
         """Generate an email address.
 
         Args:
@@ -80,7 +80,7 @@ class CustomerProvider(BaseProvider):
         first = first or self.generator.first_name()
         last = last or self.generator.last_name()
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        domain = domain or self.generator.free_email_domain()
+        domain = domain or "yopmail.com"
 
         return f"test-{first.lower()}.{last.lower()}-{timestamp}@{domain}"
 
