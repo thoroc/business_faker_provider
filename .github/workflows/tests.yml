@@ -81,7 +81,15 @@ jobs:
       - name: Run tests
         run: |
           source .venv/bin/activate
-          poetry run coverage run -m pytest && poetry run coverage report -m --no-skip-covered | tee pytest-coverage.txt
+          poetry run coverage run -m pytest
+
+      #----------------------------------------------
+      #              run coverage report
+      #----------------------------------------------
+      - name: Run tests
+        run: |
+          source .venv/bin/activate
+          poetry run coverage report -m --no-skip-covered | tee pytest-coverage.txt
 
       #----------------------------------------------
       #       append PR with code coverage
