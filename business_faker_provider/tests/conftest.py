@@ -13,4 +13,4 @@ def faker():
     seed = random.randint(10001, 99999)
     _faker.seed_instance(seed)
 
-    yield _faker
+    return _faker
